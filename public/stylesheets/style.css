@@ -1,8 +1,28 @@
+
+/* Default to dark mode */
+:root {
+  --bg-color: #181a1b;
+  --text-color: #f5f6fa;
+  --link-color: #4fc3f7;
+  --card-bg: #23272a;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
 a {
-  color: #00B7FF;
+  color: var(--link-color);
+}
+
+/* Example card styling */
+.card {
+  background: var(--card-bg);
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
 }

@@ -1,0 +1,53 @@
+Website Plan: Bet Tracking with Express
+
+1. Define core features and requirements
+   - Track bets made throughout the year
+   - Record confidence level for each bet
+   - User management (track bets by user)
+   - Yearly summaries and statistics
+
+2. Design database schema for bets and confidence
+   - Use a database like MongoDB (NoSQL) or SQLite/PostgreSQL (SQL)
+   - Suggested tables/collections:
+     a. Users
+        - id (primary key)
+        - username
+        - password_hash
+        - email
+     b. Bets
+        - id (primary key)
+        - user_id (foreign key to Users)
+        - description
+        - date_placed
+        - confidence (integer or float, e.g., 1-10 or 0-100%)
+        - outcome (pending/won/lost)
+        - notes (optional)
+     c. (Optional) ConfidenceHistory
+        - id (primary key)
+        - bet_id (foreign key to Bets)
+        - confidence_value
+        - date_recorded
+   - Suggestions:
+     * Store confidence as a numeric value for easy sorting/filtering.
+     * Use indexes on user_id and date_placed for fast queries.
+     * Consider storing outcome as an enum or string.
+     * If using MongoDB, embed bets in user documents or reference by user_id.
+     * If using SQL, use foreign keys for referential integrity.
+     * Add created_at and updated_at timestamps for tracking changes.
+
+3. Set up Express routes for bet management
+   - Add, view, edit, delete bets
+   - List bets by user and by year
+
+4. Implement views for tracking and adding bets
+   - Pages for adding new bets
+   - Pages for viewing bets and summaries
+   - Display confidence visually (e.g., color or bar)
+
+5. Add authentication for user tracking
+   - User registration and login
+   - Associate bets with users
+
+6. Test and refine user experience
+   - Ensure smooth workflow for adding/tracking bets
+   - Gather feedback and iterate

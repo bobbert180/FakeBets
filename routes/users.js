@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  // Only send one response per request
+  res.render('users', { title: 'Users', users: ['Alice', 'Bob', 'Charlie'] });
 });
 
 module.exports = router;
